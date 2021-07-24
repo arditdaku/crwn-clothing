@@ -1,0 +1,30 @@
+.homepage {
+  @apply flex flex-col items-center py-5 px-20;
+}
+
+.directory-menu {
+  @apply w-full flex flex-wrap justify-between;
+}
+
+.menu-item {
+  @apply border-2 rounded-md min-w-1/4  flex justify-center items-center flex-auto;
+  height: 240px;
+  margin: 0 7.5px 15px;
+  &:first-child {
+    @apply mr-2;
+  }
+  &:last-child {
+    @apply ml-2;
+  }
+  .content {
+    height: 90px;
+    padding: 0 25px;
+    @apply flex flex-col items-center justify-center border-2 rounded-md;
+    .title {
+      @apply font-bold mb-6 text-gray-900 text-xl;
+    }
+    .subtitle {
+      @apply font-light text-base;
+    }
+  }
+}
