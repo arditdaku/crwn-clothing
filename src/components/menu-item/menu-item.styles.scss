@@ -1,7 +1,7 @@
 .menu-item {
   height: 240px;
   margin: 0 7.5px 15px;
-  @apply bg-cover bg-center flex items-center flex-auto justify-center min-w-1/4 border-4 rounded;
+  @apply bg-cover bg-center flex items-center flex-auto justify-center min-w-1/4 border-2 border-gray-900 rounded-sm;
 
   &.large {
     height: 380px;
@@ -17,10 +17,10 @@
   .content {
     height: 90px;
     padding: 0 25px;
-    @apply flex flex-col border-2 justify-center items-center rounded;
+    @apply flex flex-col border-2 border-gray-900 justify-center items-center rounded-sm bg-white opacity-70;
 
     .title {
-      @apply font-bold mb-6 text-xl text-white uppercase;
+      @apply font-bold  text-xl text-gray-900 uppercase;
     }
 
     .subtitle {
