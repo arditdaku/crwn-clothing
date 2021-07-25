@@ -1,0 +1,30 @@
+.menu-item {
+  height: 240px;
+  margin: 0 7.5px 15px;
+  @apply bg-cover bg-center flex items-center flex-auto justify-center min-w-1/4 border-4 rounded;
+
+  &.large {
+    height: 380px;
+  }
+  &:first-child {
+    margin-right: 7.5px;
+  }
+
+  &:last-child {
+    margin-left: 7.5px;
+  }
+
+  .content {
+    height: 90px;
+    padding: 0 25px;
+    @apply flex flex-col border-2 justify-center items-center rounded;
+
+    .title {
+      @apply font-bold mb-6 text-xl text-white uppercase;
+    }
+
+    .subtitle {
+      @apply font-light text-base;
+    }
+  }
+}
