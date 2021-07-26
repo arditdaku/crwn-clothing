@@ -1,8 +1,8 @@
 .menu-item {
   height: 240px;
   margin: 0 7.5px 15px;
-  @apply bg-cover bg-center flex items-center flex-auto justify-center min-w-1/4 border-2 border-gray-900 rounded-sm;
-
+  @apply flex items-center flex-auto justify-center min-w-1/4 border-2 border-gray-900 rounded-sm;
+  @apply hover: cursor-pointer;
   &.large {
     height: 380px;
   }
@@ -13,11 +13,16 @@
   &:last-child {
     margin-left: 7.5px;
   }
-
+  .background-image {
+    @apply w-full h-full bg-cover bg-center;
+    &:hover {
+      @apply hover: scale-110;
+    }
+  }
   .content {
     height: 90px;
     padding: 0 25px;
-    @apply flex flex-col border-2 border-gray-900 justify-center items-center rounded-sm bg-white opacity-70;
+    @apply absolute flex flex-col border-2 border-gray-900 justify-center items-center rounded-sm bg-white opacity-70;
 
     .title {
       @apply font-bold  text-xl text-gray-900 uppercase;

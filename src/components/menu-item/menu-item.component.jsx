@@ -1,10 +1,7 @@
 import React from "react";
 import "./menu-item.styles.scss";
 const MenuItem = ({ title, subtitle, imageUrl, size, linkUrl }) => (
-  <div
-    style={{ backgroundImage: `url(${imageUrl})` }}
-    className={`${size} menu-item`}
-  >
+  <div className={`${size} menu-item`}>
     <div
       style={{ backgroundImage: `url(${imageUrl})` }}
       className="background-image"
@@ -17,3 +14,5 @@ const MenuItem = ({ title, subtitle, imageUrl, size, linkUrl }) => (
 );
 
 export default MenuItem;
+
+// mir se ardh e qka do qe bohet koft hajr
