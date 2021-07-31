@@ -1,0 +1,11 @@
+.collection-preview {
+  @apply mb-7 flex flex-col;
+
+  .title {
+    @apply font-bold mb-6  text-3xl text-gray-900 uppercase;
+  }
+
+  .preview {
+    @apply flex justify-between;
+  }
+}
