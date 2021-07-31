@@ -1,8 +1,19 @@
 .menu-item {
   height: 240px;
   margin: 0 7.5px 15px;
-  @apply flex items-center flex-auto justify-center min-w-1/4 border-2 border-gray-900 rounded-sm;
-  @apply hover: cursor-pointer;
+  @apply flex items-center flex-auto justify-center min-w-1/4 border-2 border-gray-900 rounded-sm cursor-pointer overflow-hidden;
+
+  &:hover {
+    cursor: pointer;
+    & .background-image {
+      transform: scale(1.1);
+      transition: transform 4s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+    }
+    & .content {
+      opacity: 0.9;
+    }
+  }
+
   &.large {
     height: 380px;
   }
@@ -15,9 +26,6 @@
   }
   .background-image {
     @apply w-full h-full bg-cover bg-center;
-    &:hover {
-      @apply hover: scale-110;
-    }
   }
   .content {
     height: 90px;
