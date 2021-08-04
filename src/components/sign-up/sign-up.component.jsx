@@ -58,12 +58,10 @@ class SignUp extends Component {
           className="sign-up-form"
           onSubmit={this.handleSubmit}
         >
-          {console.log("display name", displayName)}
-          {console.log("display name", this.state.displayName)}
           <FormInput
             type="text"
             name="displayName"
-            value={this.state.displayName}
+            value={displayName}
             handleChange={this.handleChange}
             label="Display Name"
             required
