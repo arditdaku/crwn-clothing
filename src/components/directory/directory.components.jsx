@@ -1,15 +1,15 @@
 import React from "react";
 import MenuItem from "../menu-item/menu-item.component";
-
+import { DirectoryMenu } from "./directory.styles";
 import { connect } from "react-redux";
 import { selectDirectorySections } from "../../redux/directory/directory.selectors";
 import { createStructuredSelector } from "reselect";
 const Directory = ({ sections }) => (
-  <div className="directory-menu">
+  <DirectoryMenu>
     {sections.map(({ id, ...sectionProps }) => (
       <MenuItem key={id} {...sectionProps} />
     ))}
-  </div>
+  </DirectoryMenu>
 );
 const mapStateToProps = createStructuredSelector({
   sections: selectDirectorySections,
