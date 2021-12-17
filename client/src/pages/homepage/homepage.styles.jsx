@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const HomePageConatiner = styled.div`
-  @apply flex flex-col items-center py-5 px-20;
+export const HomePageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
