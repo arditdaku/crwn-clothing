@@ -1,88 +1,64 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useForm } from "react-hook-form";
+import FormInput from "../form-input/form-input.component";
+import CustomButton from "../custom-button/custom-button.component";
 
-import FormInput from '../form-input/form-input.component';
-import CustomButton from '../custom-button/custom-button.component';
+import { signUpStart } from "../../redux/user/user.actions";
 
-import { signUpStart } from '../../redux/user/user.actions';
+import { SignUpContainer, SignUpTitle } from "./sign-up.styles";
 
-import { SignUpContainer, SignUpTitle } from './sign-up.styles';
+const SignUp = () => {
+  const dispatch = useDispatch();
+  const { register, handleSubmit } = useForm();
 
-const SignUp = ({ signUpStart }) => {
-  const [userCredentials, setUserCredentials] = useState({
-    displayName: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  });
-
-  const { displayName, email, password, confirmPassword } = userCredentials;
-
-  const handleSubmit = async event => {
-    event.preventDefault();
+  const submit = async (data) => {
+    const { displayName, email, password, confirmPassword } = data;
 
     if (password !== confirmPassword) {
       alert("passwords don't match");
       return;
     }
-
-    signUpStart({ displayName, email, password });
-  };
-
-  const handleChange = event => {
-    const { name, value } = event.target;
-
-    setUserCredentials({ ...userCredentials, [name]: value });
+    dispatch(signUpStart({ displayName, email, password }));
   };
 
   return (
     <SignUpContainer>
       <SignUpTitle>I do not have a account</SignUpTitle>
       <span>Sign up with your email and password</span>
-      <form className='sign-up-form' onSubmit={handleSubmit}>
+      <form className="sign-up-form" onSubmit={handleSubmit(submit)}>
         <FormInput
-          type='text'
-          name='displayName'
-          value={displayName}
-          onChange={handleChange}
-          label='Display Name'
+          type="text"
+          name="displayName"
+          label="Display Name"
+          formHook={{ ...register("displayName") }}
           required
         />
         <FormInput
-          type='email'
-          name='email'
-          value={email}
-          onChange={handleChange}
-          label='Email'
+          type="email"
+          name="email"
+          label="Email"
+          formHook={{ ...register("email") }}
           required
         />
         <FormInput
-          type='password'
-          name='password'
-          value={password}
-          onChange={handleChange}
-          label='Password'
+          type="password"
+          name="password"
+          label="Password"
+          formHook={{ ...register("password") }}
           required
         />
         <FormInput
-          type='password'
-          name='confirmPassword'
-          value={confirmPassword}
-          onChange={handleChange}
-          label='Confirm Password'
+          type="password"
+          name="confirmPassword"
+          label="Confirm Password"
+          formHook={{ ...register("confirmPassword") }}
           required
         />
-        <CustomButton type='submit'>SIGN UP</CustomButton>
+        <CustomButton type="submit">SIGN UP</CustomButton>
       </form>
     </SignUpContainer>
   );
 };
 
-const mapDispatchToProps = dispatch => ({
-  signUpStart: userCredentials => dispatch(signUpStart(userCredentials))
-});
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(SignUp);
+export default SignUp;
