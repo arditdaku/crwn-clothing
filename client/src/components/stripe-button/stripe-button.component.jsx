@@ -1,6 +1,7 @@
 import React from "react";
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const StripeCheckoutButton = ({ price }) => {
   const priceForStripe = price * 100;
@@ -18,12 +19,21 @@ const StripeCheckoutButton = ({ price }) => {
     })
       .then((response) => {
         alert("succesful payment");
+        toast.success("successful payment", {
+          theme: "colored",
+          progress: false,
+        });
       })
       .catch((error) => {
         console.log("Payment Error: ", error);
-        alert(
-          "There was an issue with your payment! Please make sure you use the provided credit card."
+        toast.error(
+          "There was an issue with your payment! Please make sure you use the provided credit card.",
+          {
+            theme: "colored",
+            progress: false,
+          }
         );
+        alert();
       });
   };
 

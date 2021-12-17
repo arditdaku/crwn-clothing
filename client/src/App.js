@@ -14,6 +14,9 @@ import Header from "./components/header/header.component";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import { checkUserSession } from "./redux/user/user.actions";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const App = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
@@ -24,6 +27,8 @@ const App = () => {
 
   return (
     <div>
+      <ToastContainer />
+
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
